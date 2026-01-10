@@ -1,0 +1,38 @@
+{
+  "name": "subrata-sikdar-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Subrata Sikdar - DevOps Engineer",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "serve": "python -m http.server 8000",
+    "serve:node": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "devops",
+    "aws",
+    "kubernetes",
+    "cloud",
+    "infrastructure"
+  ],
+  "author": "Subrata Sikdar <subratasikdarcareer@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^23.0.1",
+    "fast-check": "^3.15.0",
+    "@jest/globals": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "collectCoverageFrom": [
+      "**/*.{js,html}",
+      "!node_modules/**",
+      "!tests/**"
+    ]
+  }
+}
