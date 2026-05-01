@@ -1,38 +1,46 @@
 {
-  "name": "subrata-sikdar-portfolio",
-  "version": "1.0.0",
-  "description": "Personal portfolio website for Subrata Sikdar - DevOps Engineer",
-  "main": "index.html",
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "serve": "python -m http.server 8000",
-    "serve:node": "npx http-server -p 8000"
-  },
-  "keywords": [
-    "portfolio",
-    "devops",
-    "aws",
-    "kubernetes",
-    "cloud",
-    "infrastructure"
-  ],
+  "name": "subrata-sikdar-devops-portfolio",
+  "version": "1.1.0",
+  "description": "Enterprise-grade portfolio showcasing AWS/Azure cloud architecture and Kubernetes orchestration by Subrata Sikdar",
   "author": "Subrata Sikdar <subratasikdarcareer@gmail.com>",
   "license": "MIT",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "npx http-server -p 8000 -c-1",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "npx eslint .",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [
+    "DevOps",
+    "SRE",
+    "AWS-Certified",
+    "CKA",
+    "Terraform",
+    "Kubernetes",
+    "CI-CD"
+  ],
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "fast-check": "^3.15.0",
     "jest": "^29.7.0",
     "jsdom": "^23.0.1",
-    "fast-check": "^3.15.0",
-    "@jest/globals": "^29.7.0"
+    "tailwindcss": "^3.4.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
     "collectCoverageFrom": [
-      "**/*.{js,html}",
-      "!node_modules/**",
-      "!tests/**"
-    ]
+      "js/*.js",
+      "index.html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    }
   }
 }
