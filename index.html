@@ -15,43 +15,43 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"/>
 
 <style>
 /* ══════════════════════════════════════════
-   §1  DESIGN TOKENS
+   §1  DESIGN TOKENS — COSMIC AURORA
 ══════════════════════════════════════════ */
 :root {
-  /* Backgrounds */
-  --bg0: #030509;
-  --bg1: #060b10;
-  --bg2: #080e18;
-  --card: #0c1624;
-  --card2: #0e1929;
+  /* Backgrounds — deep violet-charcoal */
+  --bg0: #08060e;
+  --bg1: #0c0914;
+  --bg2: #110e1c;
+  --card: #16122a;
+  --card2: #1b1633;
 
-  /* Borders */
-  --b1: #111e35;
-  --b2: #1a2e4a;
-  --b3: #243d60;
+  /* Borders — purple-tinted */
+  --b1: #221c3e;
+  --b2: #322a58;
+  --b3: #453c72;
 
   /* Brand colours */
-  --g:   #00ff88;   /* primary green */
-  --g2:  #00cc6e;   /* green darker  */
-  --c:   #22d3ee;   /* cyan           */
-  --p:   #a855f7;   /* purple         */
-  --p2:  #7c3aed;
-  --a:   #f59e0b;   /* amber          */
-  --r:   #f43f5e;   /* red            */
+  --g:   #ff6b9d;   /* primary rose-pink */
+  --g2:  #e0557f;   /* rose darker       */
+  --c:   #f0c040;   /* warm gold         */
+  --p:   #b49afe;   /* soft lavender     */
+  --p2:  #9171e8;
+  --a:   #64d8cb;   /* teal accent       */
+  --r:   #ff5574;   /* coral-red         */
 
   /* Text */
-  --tw:  #e4f2ff;   /* near-white     */
-  --t1:  #c0d8f0;   /* primary text   */
-  --t2:  #7096b8;   /* secondary      */
-  --t3:  #3a5a78;   /* muted          */
+  --tw:  #f0ecf7;   /* near-white        */
+  --t1:  #d0c8e4;   /* primary text      */
+  --t2:  #8a7eb0;   /* secondary         */
+  --t3:  #554b78;   /* muted             */
 
   /* Typography */
-  --fh: 'Onest', sans-serif;
-  --fm: 'JetBrains Mono', monospace;
+  --fh: 'Sora', sans-serif;
+  --fm: 'IBM Plex Mono', monospace;
 
   /* Easing */
   --ease: cubic-bezier(.22,1,.36,1);
@@ -68,7 +68,7 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; border: none; background: none; cursor: none; }
 ul { list-style: none; }
-::selection { background: rgba(0,255,136,.18); color: var(--tw); }
+::selection { background: rgba(255,107,157,.2); color: var(--tw); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
@@ -90,7 +90,7 @@ ul { list-style: none; }
 }
 #cur-ring {
   width: 34px; height: 34px;
-  border: 1.5px solid rgba(0,255,136,.32);
+  border: 1.5px solid rgba(255,107,157,.35);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9989;
@@ -105,7 +105,7 @@ body:has(a:hover) #cur-ring, body:has(button:hover) #cur-ring { width: 46px; hei
 ══════════════════════════════════════════ */
 #bg-canvas {
   position: fixed; inset: 0;
-  z-index: 0; pointer-events: none; opacity: .35;
+  z-index: 0; pointer-events: none; opacity: .3;
 }
 #scroll-progress {
   position: fixed; top: 0; left: 0;
@@ -128,7 +128,7 @@ body:has(a:hover) #cur-ring, body:has(button:hover) #cur-ring { width: 46px; hei
 }
 #loader.done { opacity: 0; visibility: hidden; }
 .ld-name {
-  font-family: var(--fh); font-size: 2.8rem; font-weight: 900;
+  font-family: var(--fh); font-size: 2.8rem; font-weight: 800;
   letter-spacing: -2px;
   background: linear-gradient(135deg, var(--g), var(--c));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -148,7 +148,7 @@ body:has(a:hover) #cur-ring, body:has(button:hover) #cur-ring { width: 46px; hei
 ══════════════════════════════════════════ */
 #cmd-bg {
   position: fixed; inset: 0; z-index: 9000;
-  background: rgba(3,5,9,.82);
+  background: rgba(8,6,14,.85);
   backdrop-filter: blur(14px);
   display: flex; align-items: flex-start; justify-content: center;
   padding-top: 14vh;
@@ -161,7 +161,7 @@ body:has(a:hover) #cur-ring, body:has(button:hover) #cur-ring { width: 46px; hei
   background: var(--card2);
   border: 1px solid var(--b2);
   border-radius: 12px; overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,.85), 0 0 0 1px rgba(0,255,136,.05);
+  box-shadow: 0 40px 80px rgba(0,0,0,.85), 0 0 0 1px rgba(255,107,157,.06);
 }
 #cmd-inp-wrap {
   display: flex; align-items: center; gap: 12px;
@@ -181,7 +181,7 @@ body:has(a:hover) #cur-ring, body:has(button:hover) #cur-ring { width: 46px; hei
   font-size: .86rem; color: var(--t2);
   transition: background .1s, color .1s;
 }
-.cmd-row.sel, .cmd-row:hover { background: rgba(0,255,136,.06); color: var(--g); }
+.cmd-row.sel, .cmd-row:hover { background: rgba(255,107,157,.08); color: var(--g); }
 .cmd-row span.ico { font-size: 1rem; width: 22px; text-align: center; }
 .cmd-foot {
   padding: 9px 18px; border-top: 1px solid var(--b1);
@@ -201,17 +201,17 @@ nav {
   height: 64px;
   display: flex; align-items: center;
   padding: 0 clamp(16px, 5vw, 70px);
-  background: rgba(3,5,9,0);
+  background: rgba(8,6,14,0);
   border-bottom: 1px solid transparent;
   transition: background .4s, border-color .4s;
 }
 nav.scrolled {
-  background: rgba(3,5,9,.93);
-  border-color: rgba(17,30,53,.7);
+  background: rgba(8,6,14,.93);
+  border-color: rgba(34,28,62,.7);
   backdrop-filter: blur(16px);
 }
 .n-logo {
-  font-family: var(--fh); font-weight: 900; font-size: 1.3rem;
+  font-family: var(--fh); font-weight: 800; font-size: 1.3rem;
   letter-spacing: -1px; margin-right: auto;
   background: linear-gradient(135deg, var(--g), var(--c));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -253,7 +253,7 @@ nav.scrolled {
 /* Mobile drawer */
 .n-mob {
   display: none; position: fixed; inset: 64px 0 0;
-  background: rgba(3,5,9,.97); z-index: 499;
+  background: rgba(8,6,14,.97); z-index: 499;
   flex-direction: column; align-items: center; justify-content: center; gap: 32px;
   backdrop-filter: blur(20px);
 }
@@ -280,7 +280,7 @@ section { position: relative; z-index: 1; }
 h2.sh {
   font-family: var(--fh);
   font-size: clamp(2rem, 4vw, 3.1rem);
-  font-weight: 900; letter-spacing: -1.5px; line-height: 1.05;
+  font-weight: 800; letter-spacing: -1.5px; line-height: 1.05;
   color: var(--tw); margin-bottom: 52px;
 }
 h2.sh span {
@@ -324,8 +324,8 @@ h2.sh span {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--fm); font-size: .7rem; color: var(--g);
   letter-spacing: 2px; text-transform: uppercase;
-  padding: 7px 15px; border: 1px solid rgba(0,255,136,.2);
-  border-radius: 100px; background: rgba(0,255,136,.04);
+  padding: 7px 15px; border: 1px solid rgba(255,107,157,.22);
+  border-radius: 100px; background: rgba(255,107,157,.05);
   margin-bottom: 26px;
 }
 .h-avail-dot {
@@ -337,7 +337,7 @@ h2.sh span {
 
 .h-name {
   font-family: var(--fh); font-size: clamp(3.2rem,6.2vw,5.6rem);
-  font-weight: 900; letter-spacing: -3px; line-height: .95;
+  font-weight: 800; letter-spacing: -3px; line-height: .95;
   color: var(--tw); margin-bottom: 8px;
 }
 .h-name-line2 {
@@ -374,7 +374,7 @@ h2.sh span {
 }
 .btn svg { width: 13px; height: 13px; flex-shrink: 0; }
 .btn-g { background: var(--g); color: var(--bg0); font-weight: 700; }
-.btn-g:hover { background: var(--tw); box-shadow: 0 0 32px rgba(0,255,136,.38), 0 8px 22px rgba(0,0,0,.5); transform: translateY(-2px); }
+.btn-g:hover { background: var(--tw); box-shadow: 0 0 32px rgba(255,107,157,.38), 0 8px 22px rgba(0,0,0,.5); transform: translateY(-2px); }
 .btn-o { border: 1px solid var(--b2); color: var(--t1); }
 .btn-o:hover { border-color: var(--c); color: var(--c); transform: translateY(-2px); }
 
@@ -384,7 +384,7 @@ h2.sh span {
   padding-top: 34px; border-top: 1px solid var(--b1);
 }
 .kpi-n {
-  font-family: var(--fh); font-size: 2rem; font-weight: 900;
+  font-family: var(--fh); font-size: 2rem; font-weight: 800;
   color: var(--tw); line-height: 1;
 }
 .kpi-n em { font-style: normal; color: var(--g); }
@@ -400,7 +400,7 @@ h2.sh span {
   background: var(--card);
   border: 1px solid var(--b2); border-radius: 12px; overflow: hidden;
   box-shadow: 0 40px 90px rgba(0,0,0,.75),
-              0 0 0 1px rgba(0,255,136,.04),
+              0 0 0 1px rgba(255,107,157,.05),
               inset 0 1px 0 rgba(255,255,255,.025);
   position: relative; transform-style: preserve-3d;
   transition: transform .1s ease;
@@ -411,7 +411,7 @@ h2.sh span {
   opacity: .35;
 }
 .t-bar {
-  background: #080f1c; padding: 12px 15px;
+  background: #0e0a1a; padding: 12px 15px;
   display: flex; align-items: center; gap: 7px;
   border-bottom: 1px solid var(--b1);
 }
@@ -423,7 +423,7 @@ h2.sh span {
 .tp { color: var(--g); }
 .tc { color: var(--tw); }
 .to { padding-left: 15px; color: var(--t2); }
-.to.ok { color: #4ade80; }
+.to.ok { color: #7ee8a8; }
 .to.hi { color: var(--c); }
 .to.warn { color: var(--a); }
 .to.err { color: var(--r); }
@@ -433,7 +433,7 @@ h2.sh span {
 .h-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .h-pill {
   display: flex; align-items: center; gap: 7px;
-  padding: 7px 14px; background: rgba(8,14,24,.9);
+  padding: 7px 14px; background: rgba(17,14,28,.9);
   border: 1px solid var(--b2); border-radius: 6px;
   font-family: var(--fm); font-size: .67rem; color: var(--t1);
   transition: border-color .2s, color .2s;
@@ -473,18 +473,18 @@ h2.sh span {
   padding: 30px 22px; text-align: center;
   position: sticky; top: 78px; transition: border-color .3s;
 }
-.prof-card:hover { border-color: rgba(0,255,136,.22); }
+.prof-card:hover { border-color: rgba(255,107,157,.25); }
 .prof-av {
   width: 106px; height: 106px; margin: 0 auto 18px;
   border-radius: 50%; padding: 3px;
   background: linear-gradient(135deg, var(--g), var(--c));
-  box-shadow: 0 0 34px rgba(0,255,136,.18);
+  box-shadow: 0 0 34px rgba(255,107,157,.2);
 }
 .prof-av-in {
   width: 100%; height: 100%; border-radius: 50%;
   background: var(--bg2);
   display: flex; align-items: center; justify-content: center; overflow: hidden;
-  font-family: var(--fh); font-size: 2.3rem; font-weight: 900; color: var(--g);
+  font-family: var(--fh); font-size: 2.3rem; font-weight: 800; color: var(--g);
 }
 .prof-av-in img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .prof-name { font-family: var(--fh); font-size: 1.2rem; font-weight: 800; color: var(--tw); margin-bottom: 4px; }
@@ -507,7 +507,7 @@ h2.sh span {
   display: flex; align-items: center; justify-content: center;
   color: var(--t2); transition: all .2s;
 }
-.soc-btn:hover { border-color: var(--g); color: var(--g); background: rgba(0,255,136,.06); }
+.soc-btn:hover { border-color: var(--g); color: var(--g); background: rgba(255,107,157,.08); }
 .soc-btn svg { width: 15px; height: 15px; fill: currentColor; }
 
 /* About text */
@@ -531,23 +531,39 @@ h2.sh span {
    §12  SKILLS (TABBED)
 ══════════════════════════════════════════ */
 #skills { background: var(--bg0); }
-.stabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 36px; }
+.stabs {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 30px;
+  position: sticky; top: 70px; z-index: 10;
+  background: var(--bg0); padding: 10px 0; border-bottom: 1px solid var(--b1);
+}
 .stab {
   font-family: var(--fm); font-size: .7rem;
   letter-spacing: 1px; text-transform: uppercase;
   padding: 8px 17px; border: 1px solid var(--b1);
-  border-radius: 3px; color: var(--t2); transition: all .18s;
+  border-radius: 3px; color: var(--t2); transition: all .18s; cursor: pointer; background: transparent;
 }
-.stab:hover, .stab.on { background: rgba(0,255,136,.07); border-color: var(--g); color: var(--g); }
+.stab:hover, .stab.active { background: rgba(255,107,157,.08); border-color: var(--g); color: var(--g); }
 
-.spanel { display: none; grid-template-columns: repeat(auto-fill, minmax(248px,1fr)); gap: 13px; }
-.spanel.on { display: grid; }
+.sk-cat-title {
+  font-family: var(--fm); font-size: 1.1rem; color: var(--tw);
+  margin: 30px 0 16px; border-bottom: 1px solid var(--b1); padding-bottom: 8px; scroll-margin-top: 130px;
+}
+.sk-cat-title:first-of-type { margin-top: 0; }
+.spanel { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px,1fr)); gap: 13px; margin-bottom: 20px; }
+
+@keyframes skFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
 
 .skcard {
   background: var(--card); border: 1px solid var(--b1);
   border-radius: 10px; padding: 21px;
   transition: all .24s; position: relative; overflow: hidden;
+  animation: skFloat 5s ease-in-out infinite;
 }
+.skcard:nth-child(even) { animation-delay: 1s; }
+.skcard:nth-child(3n) { animation-delay: 2s; }
 .skcard::before {
   content: ''; position: absolute; top: 0; left: 0;
   width: 2px; height: 100%;
@@ -555,7 +571,7 @@ h2.sh span {
   transform: scaleY(0); transform-origin: bottom;
   transition: transform .28s var(--ease);
 }
-.skcard:hover { border-color: var(--b3); transform: translateY(-5px); box-shadow: 0 18px 48px rgba(0,0,0,.5); }
+.skcard:hover { border-color: var(--b3); transform: translateY(-8px) scale(1.02) !important; box-shadow: 0 20px 48px rgba(0,0,0,.6), 0 0 20px rgba(255,107,157,.15); animation-play-state: paused; z-index: 2; }
 .skcard:hover::before { transform: scaleY(1); }
 .sk-logo {
   width: 48px; height: 48px; background: #fff;
@@ -605,7 +621,7 @@ h2.sh span {
 }
 .pipe-icon::before {
   content: ''; position: absolute; inset: 0;
-  background: var(--pi-bg, rgba(0,255,136,.07));
+  background: var(--pi-bg, rgba(255,107,157,.07));
   opacity: 0; transition: opacity .3s;
 }
 .pipe-stage:hover .pipe-icon {
@@ -622,9 +638,9 @@ h2.sh span {
   display: flex; align-items: center; gap: 4px;
 }
 .pipe-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-.pb-green { color: #4ade80; border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.05); }
-.pb-green::before { background: #4ade80; box-shadow: 0 0 5px #4ade80; }
-.pb-blue { color: var(--c); border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.05); }
+.pb-green { color: #7ee8a8; border-color: rgba(126,232,168,.3); background: rgba(126,232,168,.05); }
+.pb-green::before { background: #7ee8a8; box-shadow: 0 0 5px #7ee8a8; }
+.pb-blue { color: var(--c); border-color: rgba(240,192,64,.3); background: rgba(240,192,64,.05); }
 .pb-blue::before { background: var(--c); animation: pulse 1.5s infinite; }
 
 .pipe-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--b1), transparent); margin: 36px 0; }
@@ -646,7 +662,7 @@ h2.sh span {
 .timeline { position: relative; padding-left: 24px; }
 .timeline::before {
   content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
-  width: 1px; background: linear-gradient(180deg, var(--g), rgba(0,255,136,.04));
+  width: 1px; background: linear-gradient(180deg, var(--g), rgba(255,107,157,.04));
 }
 .tli { position: relative; padding-left: 28px; padding-bottom: 44px; }
 .tli:last-child { padding-bottom: 0; }
@@ -700,10 +716,10 @@ h2.sh span {
 }
 .proj-card::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,255,136,.03), transparent 55%);
+  background: linear-gradient(135deg, rgba(255,107,157,.04), transparent 55%);
   opacity: 0; transition: opacity .3s;
 }
-.proj-card:hover { border-color: rgba(0,255,136,.17); transform: translateY(-6px); box-shadow: 0 26px 62px rgba(0,0,0,.6); }
+.proj-card:hover { border-color: rgba(255,107,157,.2); transform: translateY(-6px); box-shadow: 0 26px 62px rgba(0,0,0,.6); }
 .proj-card:hover::after { opacity: 1; }
 .proj-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 .proj-logo { width: 48px; height: 48px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 7px; }
@@ -715,7 +731,7 @@ h2.sh span {
   display: flex; align-items: center; justify-content: center;
   color: var(--t2); transition: all .2s;
 }
-.proj-link:hover { border-color: var(--g); color: var(--g); background: rgba(0,255,136,.06); }
+.proj-link:hover { border-color: var(--g); color: var(--g); background: rgba(255,107,157,.08); }
 .proj-link svg { width: 12px; height: 12px; fill: currentColor; }
 .proj-title { font-family: var(--fh); font-weight: 700; font-size: .98rem; color: var(--tw); margin-bottom: 9px; }
 .proj-desc { font-size: .84rem; color: var(--t2); line-height: 1.78; margin-bottom: 16px; flex: 1; }
@@ -785,7 +801,7 @@ h2.sh span {
 .co-link:hover { border-color: var(--g); transform: translateX(5px); }
 .co-link-icon {
   width: 34px; height: 34px; flex-shrink: 0;
-  background: rgba(0,255,136,.07); border: 1px solid rgba(0,255,136,.16);
+  background: rgba(255,107,157,.08); border: 1px solid rgba(255,107,157,.18);
   border-radius: 7px; display: flex; align-items: center; justify-content: center; color: var(--g);
 }
 .co-link-icon svg { width: 16px; height: 16px; fill: currentColor; }
@@ -806,7 +822,7 @@ h2.sh span {
   outline: none; resize: none;
   transition: border-color .2s, box-shadow .2s;
 }
-.ff input:focus, .ff textarea:focus { border-color: var(--g); box-shadow: 0 0 0 3px rgba(0,255,136,.07); }
+.ff input:focus, .ff textarea:focus { border-color: var(--g); box-shadow: 0 0 0 3px rgba(255,107,157,.08); }
 .ff input::placeholder, .ff textarea::placeholder { color: var(--t3); }
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
 .cf-submit {
@@ -818,7 +834,7 @@ h2.sh span {
   display: flex; align-items: center; justify-content: center; gap: 7px;
   transition: all .24s;
 }
-.cf-submit:hover { box-shadow: 0 0 32px rgba(0,255,136,.3), 0 8px 22px rgba(0,0,0,.4); transform: translateY(-2px); }
+.cf-submit:hover { box-shadow: 0 0 32px rgba(255,107,157,.3), 0 8px 22px rgba(0,0,0,.4); transform: translateY(-2px); }
 .cf-submit svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
 
 /* ══════════════════════════════════════════
@@ -1031,7 +1047,7 @@ footer {
       <div class="prof-card rv">
         <div class="prof-av">
           <div class="prof-av-in">
-            <img src="profile-photo.jpg" alt="Subrata Sikdar" onerror="this.style.display='none'"/>SS
+            <img src="https://avatars.githubusercontent.com/u/103638344?v=4" alt="Subrata Sikdar" />
           </div>
         </div>
         <div class="prof-name">Subrata Sikdar</div>
@@ -1084,17 +1100,19 @@ footer {
   <div class="wrap">
     <div class="eyebrow rv">Expertise</div>
     <h2 class="sh rv">Tools &amp; <span>Technologies</span></h2>
+    
     <div class="stabs rv">
-      <button class="stab on" data-tab="cloud">☁️ Cloud</button>
-      <button class="stab" data-tab="containers">🐳 Containers</button>
-      <button class="stab" data-tab="cicd">⚙️ CI/CD</button>
-      <button class="stab" data-tab="iac">🏗️ IaC</button>
-      <button class="stab" data-tab="monitoring">📡 Monitoring</button>
-      <button class="stab" data-tab="databases">🗄️ Databases</button>
+      <button class="stab active" data-target="cat-cloud">☁️ Cloud</button>
+      <button class="stab" data-target="cat-containers">🐳 Containers</button>
+      <button class="stab" data-target="cat-cicd">⚙️ CI/CD</button>
+      <button class="stab" data-target="cat-iac">🏗️ IaC</button>
+      <button class="stab" data-target="cat-monitoring">📡 Monitoring</button>
+      <button class="stab" data-target="cat-databases">🗄️ Databases</button>
     </div>
 
     <!-- Cloud -->
-    <div class="spanel on" id="tab-cloud">
+    <h3 id="cat-cloud" class="sk-cat-title rv">☁️ Cloud</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#FF9900">
         <div class="sk-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Amazon Web Services</div>
@@ -1111,12 +1129,13 @@ footer {
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="GitHub" style="filter:invert(1)" onerror="this.style.display='none'"/></div>
         <div class="sk-title">GitHub & Git</div>
         <div class="sk-desc">Advanced Git workflows, GitHub Actions automation, branch protection policies, and collaborative practices.</div>
-        <div class="sk-tags"><span class="sk-tag" style="color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.06)">Git</span><span class="sk-tag" style="color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.06)">GitHub Actions</span><span class="sk-tag" style="color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.06)">Branch Policies</span></div>
+        <div class="sk-tags"><span class="sk-tag" style="color:#7ee8a8;border-color:rgba(126,232,168,.3);background:rgba(126,232,168,.06)">Git</span><span class="sk-tag" style="color:#7ee8a8;border-color:rgba(126,232,168,.3);background:rgba(126,232,168,.06)">GitHub Actions</span><span class="sk-tag" style="color:#7ee8a8;border-color:rgba(126,232,168,.3);background:rgba(126,232,168,.06)">Branch Policies</span></div>
       </div>
     </div>
 
     <!-- Containers -->
-    <div class="spanel" id="tab-containers">
+    <h3 id="cat-containers" class="sk-cat-title rv">🐳 Containers</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#326CE5">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Kubernetes (CKA)</div>
@@ -1133,12 +1152,13 @@ footer {
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/helmsh/helmsh-icon.svg" alt="Helm" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Helm</div>
         <div class="sk-desc">Chart authoring, templating, OCI registry, lifecycle management, and release automation for Kubernetes.</div>
-        <div class="sk-tags"><span class="sk-tag" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.06)">Charts</span><span class="sk-tag" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.06)">Releases</span><span class="sk-tag" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.06)">OCI</span></div>
+        <div class="sk-tags"><span class="sk-tag" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.06)">Charts</span><span class="sk-tag" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.06)">Releases</span><span class="sk-tag" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.06)">OCI</span></div>
       </div>
     </div>
 
     <!-- CI/CD -->
-    <div class="spanel" id="tab-cicd">
+    <h3 id="cat-cicd" class="sk-cat-title rv">⚙️ CI/CD</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#D24939">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Jenkins</div>
@@ -1149,7 +1169,7 @@ footer {
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/argoprojio/argoprojio-icon.svg" alt="ArgoCD" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Argo CD</div>
         <div class="sk-desc">GitOps continuous delivery — sync policies, automated rollbacks, App-of-Apps patterns, and drift detection.</div>
-        <div class="sk-tags"><span class="sk-tag" style="color:var(--a);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06)">GitOps</span><span class="sk-tag" style="color:var(--a);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06)">App of Apps</span><span class="sk-tag" style="color:var(--a);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06)">Sync Waves</span></div>
+        <div class="sk-tags"><span class="sk-tag" style="color:var(--a);border-color:rgba(100,216,203,.3);background:rgba(100,216,203,.06)">GitOps</span><span class="sk-tag" style="color:var(--a);border-color:rgba(100,216,203,.3);background:rgba(100,216,203,.06)">App of Apps</span><span class="sk-tag" style="color:var(--a);border-color:rgba(100,216,203,.3);background:rgba(100,216,203,.06)">Sync Waves</span></div>
       </div>
       <div class="skcard rv d2" style="--sk-c:#FC6D26">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg" alt="GitLab" onerror="this.style.display='none'"/></div>
@@ -1160,7 +1180,8 @@ footer {
     </div>
 
     <!-- IaC -->
-    <div class="spanel" id="tab-iac">
+    <h3 id="cat-iac" class="sk-cat-title rv">🏗️ IaC</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#7B42BC">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" alt="Terraform" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Terraform</div>
@@ -1182,7 +1203,8 @@ footer {
     </div>
 
     <!-- Monitoring -->
-    <div class="spanel" id="tab-monitoring">
+    <h3 id="cat-monitoring" class="sk-cat-title rv">📡 Monitoring</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#F46800">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="Grafana" onerror="this.style.display='none'"/></div>
         <div class="sk-title">Grafana</div>
@@ -1199,12 +1221,13 @@ footer {
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/elastic/elastic-icon.svg" alt="ELK" onerror="this.style.display='none'"/></div>
         <div class="sk-title">ELK Stack</div>
         <div class="sk-desc">Centralised logging with Logstash pipelines and Kibana visualisations for distributed systems.</div>
-        <div class="sk-tags"><span class="sk-tag" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)">Elasticsearch</span><span class="sk-tag" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)">Logstash</span><span class="sk-tag" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)">Kibana</span></div>
+        <div class="sk-tags"><span class="sk-tag" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.06)">Elasticsearch</span><span class="sk-tag" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.06)">Logstash</span><span class="sk-tag" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.06)">Kibana</span></div>
       </div>
     </div>
 
     <!-- Databases -->
-    <div class="spanel" id="tab-databases">
+    <h3 id="cat-databases" class="sk-cat-title rv">🗄️ Databases</h3>
+    <div class="spanel">
       <div class="skcard rv" style="--sk-c:#4479A1">
         <div class="sk-logo"><img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL" onerror="this.style.display='none'"/></div>
         <div class="sk-title">MySQL & MariaDB</div>
@@ -1233,7 +1256,7 @@ footer {
     <div class="eyebrow rv">DevSecOps</div>
     <h2 class="sh rv">The Pipeline I <span>Build &amp; Run</span></h2>
     <div class="pipe-row rv">
-      <div class="pipe-stage" style="--pi-c:var(--c);--pi-bg:rgba(34,211,238,.08)"><div class="pipe-icon">📝</div><div class="pipe-label">Code</div><div class="pipe-sub">Git · GitHub</div><div class="pipe-badge pb-green">Passing</div></div>
+      <div class="pipe-stage" style="--pi-c:var(--c);--pi-bg:rgba(240,192,64,.08)"><div class="pipe-icon">📝</div><div class="pipe-label">Code</div><div class="pipe-sub">Git · GitHub</div><div class="pipe-badge pb-green">Passing</div></div>
       <div class="pipe-stage" style="--pi-c:#D24939;--pi-bg:rgba(210,73,57,.08)"><div class="pipe-icon">🔨</div><div class="pipe-label">CI Build</div><div class="pipe-sub">Jenkins · Actions</div><div class="pipe-badge pb-green">Success</div></div>
       <div class="pipe-stage" style="--pi-c:#E6522C;--pi-bg:rgba(230,82,44,.08)"><div class="pipe-icon">🧪</div><div class="pipe-label">Test &amp; Scan</div><div class="pipe-sub">SonarQube · Trivy</div><div class="pipe-badge pb-green">0 Vulns</div></div>
       <div class="pipe-stage" style="--pi-c:#2496ED;--pi-bg:rgba(36,150,237,.08)"><div class="pipe-icon">📦</div><div class="pipe-label">Container</div><div class="pipe-sub">Docker · ECR</div><div class="pipe-badge pb-green">Tagged</div></div>
@@ -1265,7 +1288,7 @@ footer {
         <div class="tli-card">
           <div class="tli-head">
             <div class="tli-role">DevOps Engineer</div>
-            <span class="tli-period" style="color:var(--g);border-color:rgba(0,255,136,.3);background:rgba(0,255,136,.06)">Dec 2023 – Present</span>
+            <span class="tli-period" style="color:var(--g);border-color:rgba(255,107,157,.3);background:rgba(255,107,157,.06)">Dec 2023 – Present</span>
           </div>
           <div class="tli-co" style="color:var(--g)">Navigator Software Pvt Ltd</div>
           <div class="tli-bullets">
@@ -1276,9 +1299,9 @@ footer {
             <div class="tli-bullet">Mentored <strong>2 junior engineers</strong> on K8s best practices and Terraform IaC, accelerating team productivity by <strong>40%</strong>.</div>
           </div>
           <div class="tli-kpis">
-            <span class="tli-kpi" style="color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.05)">⚡ 35% faster deploys</span>
-            <span class="tli-kpi" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.05)">🛡️ 0 security incidents</span>
-            <span class="tli-kpi" style="color:var(--a);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)">📈 40% team productivity</span>
+            <span class="tli-kpi" style="color:#7ee8a8;border-color:rgba(126,232,168,.3);background:rgba(126,232,168,.05)">⚡ 35% faster deploys</span>
+            <span class="tli-kpi" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.05)">🛡️ 0 security incidents</span>
+            <span class="tli-kpi" style="color:var(--a);border-color:rgba(100,216,203,.3);background:rgba(100,216,203,.05)">📈 40% team productivity</span>
           </div>
         </div>
       </div>
@@ -1288,7 +1311,7 @@ footer {
         <div class="tli-card">
           <div class="tli-head">
             <div class="tli-role">System Administrator, L2</div>
-            <span class="tli-period" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.06)">Oct 2021 – Feb 2023</span>
+            <span class="tli-period" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.06)">Oct 2021 – Feb 2023</span>
           </div>
           <div class="tli-co" style="color:var(--p)">Unified Infotech Pvt Ltd</div>
           <div class="tli-bullets">
@@ -1299,9 +1322,9 @@ footer {
             <div class="tli-bullet">Automated DB backups with Python/Bash, achieving recovery time under <strong>15 minutes</strong>.</div>
           </div>
           <div class="tli-kpis">
-            <span class="tli-kpi" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.05)">💰 $36K annual savings</span>
-            <span class="tli-kpi" style="color:var(--r);border-color:rgba(244,63,94,.3);background:rgba(244,63,94,.05)">🔒 85% fewer vulns</span>
-            <span class="tli-kpi" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.05)">🔄 75% fewer rollbacks</span>
+            <span class="tli-kpi" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.05)">💰 $36K annual savings</span>
+            <span class="tli-kpi" style="color:var(--r);border-color:rgba(255,85,116,.3);background:rgba(255,85,116,.05)">🔒 85% fewer vulns</span>
+            <span class="tli-kpi" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.05)">🔄 75% fewer rollbacks</span>
           </div>
         </div>
       </div>
@@ -1311,7 +1334,7 @@ footer {
         <div class="tli-card">
           <div class="tli-head">
             <div class="tli-role">Junior Cloud Engineer</div>
-            <span class="tli-period" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)">Feb 2020 – Sep 2021</span>
+            <span class="tli-period" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.06)">Feb 2020 – Sep 2021</span>
           </div>
           <div class="tli-co" style="color:var(--c)">Addicor Technologies Pvt Ltd</div>
           <div class="tli-bullets">
@@ -1321,8 +1344,8 @@ footer {
             <div class="tli-bullet">Set up monitoring and alerting for production anomalies, cutting mean-time-to-detect significantly.</div>
           </div>
           <div class="tli-kpis">
-            <span class="tli-kpi" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.05)">🏗️ First IaC with Terraform</span>
-            <span class="tli-kpi" style="color:#4ade80;border-color:rgba(74,222,128,.3);background:rgba(74,222,128,.05)">📉 30% better resilience</span>
+            <span class="tli-kpi" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.05)">🏗️ First IaC with Terraform</span>
+            <span class="tli-kpi" style="color:#7ee8a8;border-color:rgba(126,232,168,.3);background:rgba(126,232,168,.05)">📉 30% better resilience</span>
           </div>
         </div>
       </div>
@@ -1342,24 +1365,24 @@ footer {
         <div class="proj-head">
           <div class="proj-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" onerror="this.style.display='none'"/></div>
           <div class="proj-links">
-            <a href="https://github.com/subrata055" target="_blank" class="proj-link" aria-label="GitHub">
+            <a href="https://github.com/subrata055/Production-Grade_GitOps-Driven_Microservices" target="_blank" class="proj-link" aria-label="GitHub">
               <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
           </div>
         </div>
-        <div class="proj-title">AWS EKS Three-Tier Architecture</div>
-        <div class="proj-desc">Production three-tier web app on AWS EKS with RDS backend, auto-scaling, load balancing, and full CI/CD. Enterprise microservices at scale with zero-downtime deployments.</div>
+        <div class="proj-title">E-Commerce Three-Tier / Microservices</div>
+        <div class="proj-desc">Production-grade Online Boutique application built with 11 polyglot microservices. Deployed on AWS EKS using a GitOps approach with ArgoCD, Terraform, and Gateway API.</div>
         <div class="proj-hls">
-          <div class="proj-hl">Zero-downtime rolling deployments</div>
-          <div class="proj-hl">Multi-AZ RDS for high availability</div>
-          <div class="proj-hl">HPA autoscaling on CPU/Memory</div>
-          <div class="proj-hl">Full IaC with Terraform modules</div>
+          <div class="proj-hl">11 microservices communicating via gRPC</div>
+          <div class="proj-hl">GitOps continuous delivery with ArgoCD</div>
+          <div class="proj-hl">AWS Load Balancer Controller & Gateway API</div>
+          <div class="proj-hl">Full infrastructure managed by Terraform</div>
         </div>
         <div class="proj-tags">
           <span class="proj-tag" style="color:#FF9900;border-color:rgba(255,153,0,.3);background:rgba(255,153,0,.06)">AWS EKS</span>
-          <span class="proj-tag" style="color:#FF9900;border-color:rgba(255,153,0,.3);background:rgba(255,153,0,.06)">RDS MySQL</span>
+          <span class="proj-tag" style="color:#EF7B4D;border-color:rgba(239,123,77,.3);background:rgba(239,123,77,.06)">ArgoCD</span>
           <span class="proj-tag" style="color:#7B42BC;border-color:rgba(123,66,188,.3);background:rgba(123,66,188,.06)">Terraform</span>
-          <span class="proj-tag" style="color:#D24939;border-color:rgba(210,73,57,.3);background:rgba(210,73,57,.06)">Jenkins</span>
+          <span class="proj-tag" style="color:#326CE5;border-color:rgba(50,108,229,.3);background:rgba(50,108,229,.06)">Kubernetes</span>
           <span class="proj-tag" style="color:#2496ED;border-color:rgba(36,150,237,.3);background:rgba(36,150,237,.06)">Docker</span>
         </div>
       </div>
@@ -1368,7 +1391,7 @@ footer {
         <div class="proj-head">
           <div class="proj-logo"><img src="https://www.vectorlogo.zone/logos/argoprojio/argoprojio-icon.svg" alt="ArgoCD" onerror="this.style.display='none'"/></div>
           <div class="proj-links">
-            <a href="https://github.com/subrata055/Production-Grade_GitOps-Driven_" target="_blank" class="proj-link" aria-label="GitHub">
+            <a href="https://github.com/subrata055/Production-Grade_GitOps-Driven_Microservices" target="_blank" class="proj-link" aria-label="GitHub">
               <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
           </div>
@@ -1384,7 +1407,7 @@ footer {
         <div class="proj-tags">
           <span class="proj-tag" style="color:#EF7B4D;border-color:rgba(239,123,77,.3);background:rgba(239,123,77,.06)">ArgoCD</span>
           <span class="proj-tag" style="color:#326CE5;border-color:rgba(50,108,229,.3);background:rgba(50,108,229,.06)">Kubernetes</span>
-          <span class="proj-tag" style="color:var(--p);border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.06)">Helm</span>
+          <span class="proj-tag" style="color:var(--p);border-color:rgba(180,154,254,.3);background:rgba(180,154,254,.06)">Helm</span>
           <span class="proj-tag" style="color:#00ADD8;border-color:rgba(0,173,216,.3);background:rgba(0,173,216,.06)">Go</span>
         </div>
       </div>
@@ -1409,8 +1432,8 @@ footer {
         <div class="proj-tags">
           <span class="proj-tag" style="color:#F46800;border-color:rgba(244,104,0,.3);background:rgba(244,104,0,.06)">Grafana</span>
           <span class="proj-tag" style="color:#E6522C;border-color:rgba(230,82,44,.3);background:rgba(230,82,44,.06)">Prometheus</span>
-          <span class="proj-tag" style="color:var(--c);border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.06)">ELK</span>
-          <span class="proj-tag" style="color:var(--g);border-color:rgba(0,255,136,.2);background:rgba(0,255,136,.04)">Jaeger</span>
+          <span class="proj-tag" style="color:var(--c);border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.06)">ELK</span>
+          <span class="proj-tag" style="color:var(--g);border-color:rgba(255,107,157,.2);background:rgba(255,107,157,.04)">Jaeger</span>
         </div>
       </div>
 
@@ -1612,7 +1635,7 @@ document.addEventListener('mousemove', e => {
       if (p.y < 0 || p.y > H) p.vy *= -1;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0,255,136,.55)';
+      ctx.fillStyle = 'rgba(255,107,157,.5)';
       ctx.fill();
     });
     for (let i = 0; i < pts.length; i++) {
@@ -1624,7 +1647,7 @@ document.addEventListener('mousemove', e => {
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(0,255,136,${.12 * (1 - d/128)})`;
+          ctx.strokeStyle = `rgba(180,154,254,${.1 * (1 - d/128)})`;
           ctx.lineWidth = .5;
           ctx.stroke();
         }
@@ -1732,24 +1755,33 @@ const ctrObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.ctr').forEach(el => ctrObs.observe(el));
 
 /* ═══════════════════════════════════════════
-   SKILL TABS
+   SKILL SCROLL TABS
 ═══════════════════════════════════════════ */
 document.querySelectorAll('.stab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.stab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.spanel').forEach(p => p.classList.remove('on'));
-    tab.classList.add('on');
-    const panel = document.getElementById('tab-' + tab.dataset.tab);
-    if (panel) {
-      panel.classList.add('on');
-      // Re-trigger reveal for newly shown cards
-      panel.querySelectorAll('.rv').forEach(el => {
-        el.classList.remove('on');
-        setTimeout(() => rvObs.observe(el), 10);
-      });
+    const targetId = tab.getAttribute('data-target');
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
+
+const skillCats = document.querySelectorAll('.sk-cat-title');
+const skillTabs = document.querySelectorAll('.stab');
+window.addEventListener('scroll', () => {
+  let current = '';
+  skillCats.forEach(cat => {
+    if (window.scrollY >= cat.offsetTop - 140) {
+      current = cat.getAttribute('id');
+    }
+  });
+  if (current) {
+    skillTabs.forEach(tab => {
+      tab.classList.toggle('active', tab.getAttribute('data-target') === current);
+    });
+  }
+}, { passive: true });
 
 /* ═══════════════════════════════════════════
    TICKER BUILD
@@ -1907,7 +1939,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   const msg  = this.querySelector('[name=message]')?.value || '';
 
   btn.innerHTML = '✓ &nbsp;Sent! Talk soon.';
-  btn.style.background = 'linear-gradient(135deg,#00ff88,#00cc6e)';
+  btn.style.background = 'linear-gradient(135deg,#ff6b9d,#e0557f)';
 
   window.open(
     `mailto:subratasikdarcareer@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(msg)}`,
